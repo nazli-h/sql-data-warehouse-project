@@ -52,7 +52,7 @@ CREATE TABLE bronze.crm_sales_details (
  sls_due_dt       INT,
  sls_sales        INT,
  sls_quantity     INT,
- sls_price        INT,
+ sls_price        INT
 );
 GO
 
@@ -62,7 +62,7 @@ GO
 
 CREATE TABLE bronze.erp_loc_a101 (
  cid   NVARCHAR(50),
- entry NVARCHAR(50), 
+ entry NVARCHAR(50) 
 );
 GO
 
@@ -85,6 +85,6 @@ CREATE TABLE bronze.erp_px_cat_g1v2 (
  id          NVARCHAR(50),
  cat         NVARCHAR(50),
  subcat      NVARCHAR(50),
- maintenance NVARCHAR(50),
+ maintenance NVARCHAR(50)
 );
 GO
