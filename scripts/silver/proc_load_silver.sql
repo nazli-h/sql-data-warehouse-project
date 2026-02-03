@@ -73,8 +73,21 @@ SET @end_time = GETDATE();
     PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) +' seconds';
     PRINT '>> -------------------------';
 
-     
-
+ -- Loading silver.cmr_prd_info    
+   SET @start_time = GETDATE();
+PRINT '>> Truncating Table: silver.cmr_prd_info ';
+TRUNCATE TABLE silver.cmr_prd_info ;
+PRINT '>> Inserting Data Into: silver.cmr_prd_info ';
+INSERT INTO silver.cmr_prd_info (
+  prd_id,
+  cat_id,
+  prd_key,
+  prd_,
+  prd_,
+  prd_,
+  prd_
+  )
+ SELECT 
 
 
 
