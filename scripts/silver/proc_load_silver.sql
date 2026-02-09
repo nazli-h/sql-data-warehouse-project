@@ -82,12 +82,25 @@ INSERT INTO silver.cmr_prd_info (
   prd_id,
   cat_id,
   prd_key,
-  prd_,
-  prd_,
-  prd_,
-  prd_
+  prd_nm,
+  prd_cost,
+  prd_line,
+  prd_start_dt,
+  prd_end_dt   
   )
  SELECT 
+prd_id,
+REPLACE(SUBSTRING(prd_key,1,5),'-','-') AS cat_id,
+SUBSTRING(prd_key, 7 , LEN(prd_key)) AS prd_key,
+prd_nm,
+ISNULL(prd_cost, 0 ) AS prd_cost,
+CASE 
+ WHEN UPPER(TRIM(prd_line)) = 'M' THEN 'Mountain'
+ WHEN UPPER(TRIM(prd_line)) = 'R' THEN 'Road'
+ WHEN UPPER(TRIM(prd_line)) = 'S' THEN 'Other Sales'
+ WHEN UPPER(TRIM(prd_line)) = 'T' THEN 'Touring'
+ ELSE 'n/a'
+END AS prd_line,
 
 
 
