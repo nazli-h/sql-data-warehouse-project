@@ -156,7 +156,7 @@ END AS sls_price
 FROM bronze.crm_sales_details;
     SET @end_time = GETDATE();
     PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) +' seconds';
-    PRINT '>> -------------------------'
+    PRINT '>> -------------------------';
 
     PRINT '-----------------------------------------------------------------------';
     PRINT 'Loading ERP Tables';
@@ -181,7 +181,7 @@ END AS cntry
 FROM bronze.erp_loc_a101
     SET @end_time = GETDATE();
     PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) +' seconds';
-    PRINT '>> -------------------------'
+    PRINT '>> -------------------------';
          
  -- Loading erp_cust_az12 
    SET @start_time = GETDATE();
@@ -210,7 +210,7 @@ END AS gen
 FROM bronze.erp_cust_az12 
     SET @end_time = GETDATE();
     PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) +' seconds';
-    PRINT '>> -------------------------'
+    PRINT '>> -------------------------';
 
  -- Loading erp_px_cat_g1v2 
    SET @start_time = GETDATE();
@@ -231,22 +231,22 @@ INSERT INTO silver.erp_px_cat_g1v2  (
 FROM bronze.erp_px_cat_g1v2
     SET @end_time = GETDATE();
     PRINT '>> Load Duration: ' + CAST(DATEDIFF(SECOND, @start_time, @end_time) AS NVARCHAR) +' seconds';
-    PRINT '>> -------------------------'
+    PRINT '>> -------------------------';
 
 SET @batch_end_time = GETDATE();
-PRINT '=================================================;
+PRINT '=================================================';
 PRINT 'Loading Silver Layer is Completed';
      PRINT '   -Total Duration: ' + CAST(DATEDIFF(SECOND, @batch_start_time, @batch_end_time) AS NVARCHAR) +' seconds';
-PRINT '=================================================;
+PRINT '=================================================';
 
 END TRY
  BEGIN CATCH
-  PRINT '================================================;
-  PRINT 'ERROR OCCURED DURING LOADING BRONZE LAYER'
+  PRINT '================================================';
+  PRINT 'ERROR OCCURED DURING LOADING BRONZE LAYER';
   PRINT 'Error Massage' + ERROR_MESSAGE();
   PRINT 'Error Massage' + CAST (ERROR_NUMBER() AS NVARCHAR);
   PRINT 'Error Massage' + CAST (ERROR_STATE() AS NVARCHAR);
-  PRINT '================================================;
+  PRINT '================================================';
  END CATCH
 END
 
